@@ -1,17 +1,16 @@
 part of '../datasources.dart';
 
-
-class TransactionsDatasource implements ITransactionDatasource {
+class TransactionsDatasource implements ITransactionsDatasource {
   @override
   Future<TransactionEntity> create(
       {required UserEntity seller,
       required UserEntity customer,
-      required ProductEntity product}) {
-    throw UnimplementedError();
+      required ProductEntity product}) async {
+    return TransactionsModel();
   }
 
   @override
-  Future<TransactionEntity> getById({required int id}) {
-    throw UnimplementedError();
+  Future<TransactionEntity> getById({required int id}) async {
+    return TransactionsModel();
   }
 }

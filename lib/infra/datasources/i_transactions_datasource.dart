@@ -2,7 +2,7 @@ import 'package:ilia/domain/entities/products/product_entity.dart';
 import 'package:ilia/domain/entities/transactions/transaction_entity.dart';
 import 'package:ilia/domain/entities/users/user_entity.dart';
 
-abstract class ITransactionDatasource {
+abstract class ITransactionsDatasource {
   Future<TransactionEntity> getById({
     required int id,
   });

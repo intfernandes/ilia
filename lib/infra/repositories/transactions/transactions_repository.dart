@@ -1,9 +1,9 @@
 part of '../repositories.dart';
 
 class TransactionsRepository implements ITransactionsRepository {
-  final ITransactionDatasource _datasource;
+  final ITransactionsDatasource _datasource;
 
-  TransactionsRepository({required ITransactionDatasource datasource})
+  TransactionsRepository({required ITransactionsDatasource datasource})
       : _datasource = datasource;
 
   @override

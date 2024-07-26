@@ -1,17 +1,20 @@
 part of '../adapters.dart';
 
-
 class AutoInjectorImpl implements IInjector {
+  AutoInjectorImpl() {
+    register();
+  }
+
   final _autoInjector = AutoInjector();
 
   @override
-  add<T extends Object>(Function constructor) {
-    _autoInjector.add<T>(constructor(), key: T.toString());
+  add<T extends Object>(constructor) {
+    _autoInjector.add<T>(constructor);
   }
 
   @override
-  addSingleton<T extends Object>(Function constructor) {
-    _autoInjector.addSingleton<T>(constructor());
+  addSingleton<T extends Object>(constructor) {
+    _autoInjector.addSingleton<T>(constructor);
   }
 
   @override
@@ -20,11 +23,10 @@ class AutoInjectorImpl implements IInjector {
   }
 
   @override
-  void unregister<T extends Object>(T instance) {
-    _autoInjector.disposeInjectorByTag(T.toString());
-  }
-
-  void commit() {
+  void register() {
+    add<ITransactionsDatasource>(TransactionsDatasource.new);
+    add<ITransactionsRepository>(TransactionsRepository.new);
+    add<CreateTransactionUc>(CreateTransactionUc.new);
     _autoInjector.commit();
   }
 }
