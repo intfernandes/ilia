@@ -23,6 +23,8 @@ void main() async {
     seller: UserModel(),
   );
 
+  final endpoint = await Endpoint()
+
   debugPrint('transaction: $transaction');
 
   runApp(const MyApp());
